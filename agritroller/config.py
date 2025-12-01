@@ -67,7 +67,7 @@ class ModuleConfigSettings:
 
 @dataclass
 class FrontendConfig:
-    dist_dir: Path = Path("frontend/dist")
+    dist_dir: Path = Path("frontend/dist/spa")
 
 
 @dataclass

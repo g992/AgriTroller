@@ -13,12 +13,13 @@ PORT=${AGRITROLLER_PORT:-8080}
 LOG_LEVEL=${AGRITROLLER_LOG_LEVEL:-INFO}
 API_BASE=${VITE_API_BASE_URL:-http://localhost:${PORT}/api}
 LOG_FILE=${AGRITROLLER_LOG_FILE:-"${HOME}/.agritroller/agritroller.log"}
+FRONTEND_DIST=${AGRITROLLER_FRONTEND_DIST:-"${PROJECT_ROOT}/frontend/dist/spa"}
 
 SCRIPT_DEPS="${PROJECT_ROOT}/scripts/install_apt_deps.sh"
 SCRIPT_CRON="${PROJECT_ROOT}/scripts/install_crontab_start.sh"
 
 status_line() {
-  local label="$1"; local done="$2"; local info="$3"
+  local label="$1"; local done="$2"; local info="${3-}"
   if [[ "${done}" == "1" ]]; then
     echo "[done] ${label}${info:+ - ${info}}"
   else
@@ -61,6 +62,13 @@ cron_installed() {
 
 app_running() {
   pgrep -f "python[0-9.]* .*main.py" >/dev/null 2>&1
+}
+
+stop_app() {
+  if app_running; then
+    pkill -f "python[0-9.]* .*main.py" || true
+    sleep 1
+  fi
 }
 
 install_apt_deps() {
@@ -113,7 +121,7 @@ start_app() {
   AGRITROLLER_HOST=${HOST} \
   AGRITROLLER_PORT=${PORT} \
   AGRITROLLER_LOG_LEVEL=${LOG_LEVEL} \
-  AGRITROLLER_FRONTEND_DIST="${PROJECT_ROOT}/frontend/dist" \
+  AGRITROLLER_FRONTEND_DIST="${FRONTEND_DIST}" \
   nohup python "${PROJECT_ROOT}/main.py" >> "${LOG_FILE}" 2>&1 &
   echo "[+] Started with PID $!"
 }
@@ -137,6 +145,7 @@ Commands:
   frontend  Build frontend
   cron      Install @reboot crontab entry
   start     Start the app if not already running
+  update    git pull, rebuild frontend, restart app
   status    Show completion status
 EOF
 }
@@ -163,6 +172,13 @@ case "${cmd}" in
     install_cron
     ;;
   start)
+    start_app
+    ;;
+  update)
+    stop_app
+    git -C "${PROJECT_ROOT}" pull --ff-only
+    setup_backend
+    build_frontend
     start_app
     ;;
   status)
