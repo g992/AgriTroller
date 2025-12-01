@@ -124,6 +124,7 @@ show_status() {
   status_line "Frontend build" "$(frontend_built && echo 1 || echo 0)" "dist/frontend/dist"
   status_line "Autostart (crontab)" "$(cron_installed && echo 1 || echo 0)"
   status_line "App running" "$(app_running && echo 1 || echo 0)"
+  echo "[*] Access UI at: http://${HOST}:${PORT}/app"
 }
 
 usage() {

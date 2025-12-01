@@ -15,6 +15,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException, Query, Response, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field, ConfigDict
 
 from agritroller.config import FrontendConfig, WebConfig
@@ -170,6 +171,11 @@ class WebServer:
         @self.app.get("/api/health")
         async def health() -> Dict[str, str]:
             return {"status": "ok"}
+
+        @self.app.get("/")
+        async def root() -> Response:
+            # Redirect root requests to the frontend app entrypoint.
+            return RedirectResponse(url="/app")
 
         @self.app.get("/api/versions")
         async def versions() -> Dict[str, Any]:
