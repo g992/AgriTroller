@@ -23,3 +23,4 @@ echo "[*] Installing packages: ${REQUIRED_PACKAGES[*]}"
 ${SUDO_BIN} apt-get install -y "${REQUIRED_PACKAGES[@]}"
 
 echo "[+] System dependencies installed"
+echo "[i] If your distro ships an old Node.js, install Node 18/20 LTS (e.g. via NodeSource) before building the frontend."

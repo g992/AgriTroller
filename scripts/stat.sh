@@ -30,6 +30,19 @@ have_apt_deps() {
   command -v python3 >/dev/null 2>&1 && command -v npm >/dev/null 2>&1 && command -v node >/dev/null 2>&1 && command -v git >/dev/null 2>&1
 }
 
+require_node() {
+  if ! command -v node >/dev/null 2>&1; then
+    echo "[!] Node.js not found. Install Node.js >= 18 (prefer 20 LTS)." >&2
+    exit 1
+  fi
+  local v
+  v=$(node -v | sed 's/^v//; s/\..*//')
+  if (( v < 18 )); then
+    echo "[!] Node.js $v detected; need >= 18. Install Node 18/20 (e.g. NodeSource) and rerun." >&2
+    exit 1
+  fi
+}
+
 backend_ready() {
   [[ -x "${VENV_DIR}/bin/python" ]] || return 1
   "${VENV_DIR}/bin/python" - <<'PY' >/dev/null 2>&1
@@ -70,6 +83,7 @@ setup_backend() {
 }
 
 build_frontend() {
+  require_node
   echo "[*] Building frontend with API base ${API_BASE}"
   pushd "${PROJECT_ROOT}/frontend" >/dev/null
   export VITE_API_BASE_URL="${API_BASE}"
