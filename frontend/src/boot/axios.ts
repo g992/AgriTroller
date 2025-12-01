@@ -15,16 +15,38 @@ declare module 'vue' {
 // "export default () => {}" function below (which runs individually
 // for each client)
 function resolveApiBaseUrl(): string {
-  if (import.meta.env.VITE_API_BASE_URL) {
-    return import.meta.env.VITE_API_BASE_URL;
-  }
+  const envBase = import.meta.env.VITE_API_BASE_URL;
 
-  if (typeof window !== 'undefined') {
-    const url = new URL(window.location.href);
-    url.pathname = '/api';
+  const isLocalHost = (hostname: string) =>
+    ['localhost', '127.0.0.1', '::1'].includes(hostname.toLowerCase());
+
+  const buildFromWindow = (path = '/api') => {
+    const url = new URL(typeof window !== 'undefined' ? window.location.href : 'http://localhost:8080');
+    url.pathname = path.startsWith('/') ? path : `/${path}`;
     url.search = '';
     url.hash = '';
     return url.toString();
+  };
+
+  // If a base is provided, prefer it unless it points to localhost while the page is served from another host.
+  if (envBase && envBase !== 'auto') {
+    if (typeof window !== 'undefined') {
+      try {
+        const parsed = new URL(envBase, window.location.origin);
+        if (isLocalHost(parsed.hostname) && !isLocalHost(window.location.hostname)) {
+          return buildFromWindow(parsed.pathname || '/api');
+        }
+        return parsed.toString();
+      } catch (err) {
+        // fall back to window-based origin if parsing fails
+        return buildFromWindow('/api');
+      }
+    }
+    return envBase;
+  }
+
+  if (typeof window !== 'undefined') {
+    return buildFromWindow('/api');
   }
 
   return 'http://localhost:8080/api';
