@@ -1,0 +1,40 @@
+// global styles tuned for a dark console look
+body {
+  font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+.text-white {
+  color: #f8fafc;
+}
+
+.q-page {
+  background-color: transparent;
+}
+
+.q-field__native,
+.q-field__inner input,
+.q-field__inner textarea,
+.q-field--standout.q-field--dark .q-field__native,
+.q-field--standout.q-field--dark .q-field__input,
+.q-field--standout.q-field--dark .q-field__prefix,
+.q-field--standout.q-field--dark .q-field__suffix,
+.q-field--standout.q-field--dark .q-field__prepend,
+.q-field--standout.q-field--dark .q-field__append,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__native,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__input,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__prefix,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__suffix,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__prepend,
+.q-field--standout.q-field--dark.q-field--highlighted .q-field__append {
+  color: #f8fafc;
+}
+
+.q-field__native::placeholder,
+.q-field__inner input::placeholder,
+.q-field__inner textarea::placeholder,
+.q-field--standout.q-field--dark .q-field__native::placeholder,
+.q-field--standout.q-field--dark .q-field__input::placeholder {
+  color: rgba(148, 163, 184, 0.85);
+}

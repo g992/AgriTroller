@@ -1,0 +1,8 @@
+fastapi>=0.114.1,<0.115
+uvicorn>=0.30.6,<0.31
+psutil>=5.9.0,<6.0.0
+pytest>=7.4,<9
+pytest-asyncio>=0.23,<0.25
+websockets>=12.0,<13.0
+pyserial>=3.5,<4.0
+jinja2>=3.1,<4.0

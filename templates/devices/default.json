@@ -1,0 +1,38 @@
+{
+  "name": "default_greenhouse",
+  "devices": [
+    {
+      "id": 1,
+      "type": "rs485",
+      "description": "Main nutrient mixer"
+    }
+  ],
+  "registers": [
+    {
+      "name": "pump_enable",
+      "address": 0,
+      "mode": "coil",
+      "description": "Controls nutrient pump relay"
+    },
+    {
+      "name": "ph_value",
+      "address": 10,
+      "mode": "holding",
+      "units": "pH"
+    }
+  ],
+  "ui": {
+    "layout": [
+      {
+        "type": "toggle",
+        "register": "pump_enable",
+        "label": "Насос"
+      },
+      {
+        "type": "value",
+        "register": "ph_value",
+        "label": "pH"
+      }
+    ]
+  }
+}
