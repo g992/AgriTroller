@@ -1,110 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AIAssistantCustomInstructionsStorage">
+    <option name="instructions">
+      <map>
+        <entry key="AIAssistant.VCS.GenerateCommitMessage">
+          <value>
+            <AIAssistantStoredInstruction>
+              <option name="actionId" value="AIAssistant.VCS.GenerateCommitMessage" />
+              <option name="content" value="Avoid overly verbose descriptions or unnecessary details.&#10;point features by &quot;-&quot;like &#10;- feature1: make cool logo&#10;- feature2: ...&#10;also point fixed bugs, optimizations and modifications in this style" />
+            </AIAssistantStoredInstruction>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/AgriTroller.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/db/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/db/migrations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/device_registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/event_bus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/firmware.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/frontend.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/logic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/modbus_scanner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/module_configs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/notifications.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/peripheral.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/port_monitor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/rs485.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/scheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/templates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/versioning.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/web.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/services/wifi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/system.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/web/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agritroller/web/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/ac_switch.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/iarduino_base.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/simple-keyboard/example/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/simple-keyboard/example/SimpleKeyboard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/simple-keyboard/methods.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/simple-keyboard/modules.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/simple-keyboard/options.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.npmrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.prettierrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/icons/favicon-128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/icons/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/icons/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/icons/favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quasar.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/agritroller-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/boot/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/boot/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/KioskInput.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/KioskKeyboard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/StatusCard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/css/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/css/quasar.variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/layouts/KioskLayout.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/layouts/MainLayout.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/ErrorNotFound.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/HomePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SettingsPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/kiosk/KioskHomePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/kiosk/KioskSettingsPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/router/routes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/app-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/device-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/event-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/module-config-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/notification-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/stores/wifi-store.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/templan.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/run_backend.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/devices/default.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_device_registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_event_bus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_module_configs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_notifications.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_port_monitor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/test_wifi.py" afterDir="false" />
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +62,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.intellij.mcpserver.settings",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/G992/PycharmProjects/AgriTroller/frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -177,12 +93,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="69729000" />
+      <workItem from="1763214049657" duration="69954000" />
     </task>
+    <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
+      <option name="closed" value="true" />
+      <created>1764605711577</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764605711577</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`." />
+    <option name="LAST_COMMIT_MESSAGE" value="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
