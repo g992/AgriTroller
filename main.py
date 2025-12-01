@@ -7,7 +7,7 @@ import logging
 import os
 
 from agritroller import ServiceContainer
-from agritroller.config import AppConfig
+from agritroller.config import load_app_config_from_env
 
 
 def configure_logging() -> None:
@@ -20,7 +20,7 @@ def configure_logging() -> None:
 
 async def run() -> None:
     configure_logging()
-    config = AppConfig()
+    config = load_app_config_from_env()
     container = ServiceContainer(config)
     await container.start_all()
     try:
