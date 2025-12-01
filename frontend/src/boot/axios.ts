@@ -37,8 +37,7 @@ function resolveApiBaseUrl(): string {
           return buildFromWindow(parsed.pathname || '/api');
         }
         return parsed.toString();
-      } catch (err) {
-        // fall back to window-based origin if parsing fails
+      } catch {
         return buildFromWindow('/api');
       }
     }
