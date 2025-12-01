@@ -118,6 +118,8 @@ class WifiService(Service):
         )
         if proc.returncode != 0:
             stderr = proc.stderr.strip() or proc.stdout.strip()
+            if "not authorized" in stderr.lower():
+                raise RuntimeError("nmcli not authorized; grant NetworkManager control via polkit or sudo.")
             raise RuntimeError(stderr or "nmcli scan failed")
         return proc.stdout
 

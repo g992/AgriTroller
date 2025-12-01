@@ -46,6 +46,8 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     window.localStorage.setItem(LAST_MODE_KEY, mode);
   };
 
+  const isKioskRoute = (path: string) => path.startsWith('/kiosk');
+
   const ensureMode = (
     to: RouteLocationNormalized,
     next: NavigationGuardNext,
@@ -55,7 +57,7 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     delete removeModeQuery.mode;
 
     const targetMode: ModeName | null = forcedMode ?? getLastMode();
-    if (targetMode === 'kiosk' && !to.path.startsWith('/kiosk')) {
+    if (targetMode === 'kiosk' && !isKioskRoute(to.path)) {
       setLastMode('kiosk');
       next({ path: '/kiosk', query: removeModeQuery, hash: to.hash });
       return true;
@@ -91,7 +93,7 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     if (redirected) return;
 
     // Persist mode based on current route when no redirect happened.
-    if (to.path.startsWith('/kiosk')) {
+    if (isKioskRoute(to.path)) {
       setLastMode('kiosk');
     } else if (!to.path.startsWith('/api')) {
       setLastMode('default');

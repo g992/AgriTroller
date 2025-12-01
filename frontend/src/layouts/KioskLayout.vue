@@ -33,7 +33,7 @@
             text-color="white"
             class="nav-btn"
             icon="desktop_windows"
-            @click="go('/')"
+            @click="switchToDesktop"
           />
           <q-btn
             unelevated
@@ -160,6 +160,7 @@ import {
   type NotificationSeverity,
 } from 'stores/notification-store';
 import { useWifiStore } from 'stores/wifi-store';
+import { useRouterMode } from 'stores/router-mode';
 import logoUrl from 'assets/agritroller-logo.png';
 
 const OPEN_NOTIFICATIONS_EVENT = 'kiosk-open-notifications';
@@ -169,6 +170,7 @@ const route = useRoute();
 const eventStore = useEventStore();
 const notificationStore = useNotificationStore();
 const wifiStore = useWifiStore();
+const routerMode = useRouterMode();
 const {
   notifications,
   unreadCount,
@@ -201,6 +203,11 @@ function go(path: string) {
   if (route.path !== path) {
     void router.push(path);
   }
+}
+
+function switchToDesktop() {
+  routerMode.setMode('default');
+  void router.push('/');
 }
 
 function isActive(path: string) {

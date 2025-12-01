@@ -18,8 +18,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`.">
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.ts" afterDir="false" />
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- fix: simplify error handling for API base URL parsing  &#10;  - Remove unused error variable in `axios.ts` fallback logic.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="74758000" />
+      <workItem from="1763214049657" duration="75462000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -178,7 +178,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764611779667</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- fix: clean query parameters in Vue router redirection  &#10;  - Remove redundant `params` property to avoid unintended side effects during navigation.  &#10;  - Adjust `next` call for cleaner redirection logic in `router/index.ts`.  &#10;- chore: update IDE metadata (`workspace.xml`) to reflect file changes.">
+      <option name="closed" value="true" />
+      <created>1764612129880</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764612129880</updated>
+    </task>
+    <task id="LOCAL-00011" summary="- fix: improve API base URL resolution  &#10;  - Add fallback for parsing errors when `VITE_API_BASE_URL` is invalid.  &#10;  - Ensure localhost handling aligns with host origin for improved consistency.  &#10;  - Clean up logic for constructing dynamic API base URLs.">
+      <option name="closed" value="true" />
+      <created>1764613554758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764613554758</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- fix: simplify error handling for API base URL parsing  &#10;  - Remove unused error variable in `axios.ts` fallback logic.">
+      <option name="closed" value="true" />
+      <created>1764613745024</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764613745024</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +218,10 @@
     <MESSAGE value="- feat: enhance frontend integration and static asset serving  &#10;  - Add `FRONTEND_DIST` environment variable for configurable frontend `dist` path in scripts.  &#10;  - Update FastAPI server to mount static assets at root (`/`).  &#10;  - Remove unused root URL redirection (`/` to `/app`)." />
     <MESSAGE value="- feat: implement mode persistence and redirection in router  &#10;  - Add `LAST_MODE_KEY` for storing the last mode in localStorage.  &#10;  - Introduce `normalizeMode` and `ensureMode` functions to handle mode transitions.  &#10;  - Add `beforeEach` navigation guard to persist mode and handle redirections.  &#10;  - Remove `/app` from UI access URL in `stat.sh` for consistency." />
     <MESSAGE value="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`." />
-    <option name="LAST_COMMIT_MESSAGE" value="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`." />
+    <MESSAGE value="- fix: clean query parameters in Vue router redirection  &#10;  - Remove redundant `params` property to avoid unintended side effects during navigation.  &#10;  - Adjust `next` call for cleaner redirection logic in `router/index.ts`.  &#10;- chore: update IDE metadata (`workspace.xml`) to reflect file changes." />
+    <MESSAGE value="- fix: improve API base URL resolution  &#10;  - Add fallback for parsing errors when `VITE_API_BASE_URL` is invalid.  &#10;  - Ensure localhost handling aligns with host origin for improved consistency.  &#10;  - Clean up logic for constructing dynamic API base URLs." />
+    <MESSAGE value="- fix: simplify error handling for API base URL parsing  &#10;  - Remove unused error variable in `axios.ts` fallback logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix: simplify error handling for API base URL parsing  &#10;  - Remove unused error variable in `axios.ts` fallback logic." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

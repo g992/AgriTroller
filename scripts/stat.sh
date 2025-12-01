@@ -17,6 +17,7 @@ FRONTEND_DIST=${AGRITROLLER_FRONTEND_DIST:-"${PROJECT_ROOT}/frontend/dist/spa"}
 
 SCRIPT_DEPS="${PROJECT_ROOT}/scripts/install_apt_deps.sh"
 SCRIPT_CRON="${PROJECT_ROOT}/scripts/install_crontab_start.sh"
+SCRIPT_POLKIT="${PROJECT_ROOT}/scripts/setup_polkit_wifi.sh"
 
 status_line() {
   local label="$1"; local done="$2"; local info="${3-}"
@@ -144,6 +145,7 @@ Commands:
   backend   Create venv and install backend deps
   frontend  Build frontend
   cron      Install @reboot crontab entry
+  polkit    Configure polkit rules for Wi-Fi control (nmcli)
   start     Start the app if not already running
   update    git pull, rebuild frontend, restart app
   status    Show completion status
@@ -170,6 +172,9 @@ case "${cmd}" in
     ;;
   cron)
     install_cron
+    ;;
+  polkit)
+    bash "${SCRIPT_POLKIT}" USERNAME="${USER}" GROUP_NAME="netdev"
     ;;
   start)
     start_app
