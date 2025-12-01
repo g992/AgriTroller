@@ -83,7 +83,7 @@ export default defineRouter(function (/* { store, ssrContext } */) {
       // If already in target mode, strip mode from URL to avoid loops.
       const cleanedQuery = { ...to.query };
       delete cleanedQuery.mode;
-      next({ path: to.path, query: cleanedQuery, hash: to.hash, params: to.params });
+      next({ path: to.path, query: cleanedQuery, hash: to.hash });
       return;
     }
 

@@ -18,10 +18,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: enhance frontend integration and static asset serving  &#10;  - Add `FRONTEND_DIST` environment variable for configurable frontend `dist` path in scripts.  &#10;  - Update FastAPI server to mount static assets at root (`/`).  &#10;  - Remove unused root URL redirection (`/` to `/app`).">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`.">
       <change beforePath="$PROJECT_DIR$/frontend/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/stat.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/stat.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="74044000" />
+      <workItem from="1763214049657" duration="74758000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -164,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764610849833</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- feat: implement mode persistence and redirection in router  &#10;  - Add `LAST_MODE_KEY` for storing the last mode in localStorage.  &#10;  - Introduce `normalizeMode` and `ensureMode` functions to handle mode transitions.  &#10;  - Add `beforeEach` navigation guard to persist mode and handle redirections.  &#10;  - Remove `/app` from UI access URL in `stat.sh` for consistency.">
+      <option name="closed" value="true" />
+      <created>1764611563864</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764611563864</updated>
+    </task>
+    <task id="LOCAL-00009" summary="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`.">
+      <option name="closed" value="true" />
+      <created>1764611779667</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764611779667</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +192,9 @@
     <MESSAGE value="- feat: add UI access info in `stat.sh` and root URL redirection in FastAPI app  &#10;  - Display frontend UI access URL in `stat.sh`.  &#10;  - Redirect root (&quot;/&quot;) to `/app` in the FastAPI server." />
     <MESSAGE value="- feat: add app update functionality and fix default frontend directory path  &#10;  - Introduced `update` command in `stat.sh` to stop app, fetch updates, rebuild, and restart.  &#10;  - Updated frontend's default `dist_dir` to `frontend/dist/spa` in `config.py`." />
     <MESSAGE value="- feat: enhance frontend integration and static asset serving  &#10;  - Add `FRONTEND_DIST` environment variable for configurable frontend `dist` path in scripts.  &#10;  - Update FastAPI server to mount static assets at root (`/`).  &#10;  - Remove unused root URL redirection (`/` to `/app`)." />
-    <option name="LAST_COMMIT_MESSAGE" value="- feat: enhance frontend integration and static asset serving  &#10;  - Add `FRONTEND_DIST` environment variable for configurable frontend `dist` path in scripts.  &#10;  - Update FastAPI server to mount static assets at root (`/`).  &#10;  - Remove unused root URL redirection (`/` to `/app`)." />
+    <MESSAGE value="- feat: implement mode persistence and redirection in router  &#10;  - Add `LAST_MODE_KEY` for storing the last mode in localStorage.  &#10;  - Introduce `normalizeMode` and `ensureMode` functions to handle mode transitions.  &#10;  - Add `beforeEach` navigation guard to persist mode and handle redirections.  &#10;  - Remove `/app` from UI access URL in `stat.sh` for consistency." />
+    <MESSAGE value="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`." />
+    <option name="LAST_COMMIT_MESSAGE" value="- chore: optimize imports in Vue router setup  &#10;  - Use `type` import for `NavigationGuardNext` and `RouteLocationNormalized` in `router/index.ts`.  &#10;- fix: handle graceful websocket cancellation in server  &#10;  - Add log message for asyncio task cancellation in `server.py`.  &#10;  - Improve robustness during shutdown by catching `asyncio.CancelledError`." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
