@@ -60,7 +60,7 @@ start_backend() {
   AGRITROLLER_HOST="${HOST}" \
   AGRITROLLER_PORT="${PORT}" \
   AGRITROLLER_LOG_LEVEL="${LOG_LEVEL}" \
-  AGRITROLLER_FRONTEND_DIST="${PROJECT_ROOT}/frontend/dist" \
+  AGRITROLLER_FRONTEND_DIST="${PROJECT_ROOT}/frontend/dist/spa" \
   python "${PROJECT_ROOT}/main.py"
 }
 

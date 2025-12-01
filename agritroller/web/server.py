@@ -121,6 +121,7 @@ class WebServer:
         self.app = FastAPI(title="AgriTroller API", version="0.1.0")
         self._configure_middlewares()
         self._configure_routes()
+        self._mount_static()
         self._server: Optional[uvicorn.Server] = None
         self._task: Optional[asyncio.Task] = None
 
@@ -165,17 +166,11 @@ class WebServer:
             allow_methods=["*"],
             allow_headers=["*"],
         )
-        self._mount_static()
 
     def _configure_routes(self) -> None:
         @self.app.get("/api/health")
         async def health() -> Dict[str, str]:
             return {"status": "ok"}
-
-        @self.app.get("/")
-        async def root() -> Response:
-            # Redirect root requests to the frontend app entrypoint.
-            return RedirectResponse(url="/app")
 
         @self.app.get("/api/versions")
         async def versions() -> Dict[str, Any]:
@@ -500,8 +495,9 @@ class WebServer:
         dist_dir = Path(self.frontend_config.dist_dir)
         if dist_dir.exists():
             self.logger.info("Serving frontend assets from %s", dist_dir)
+            # Mount after API routes so /api/* continues to work.
             self.app.mount(
-                "/app",
+                "/",
                 StaticFiles(directory=str(dist_dir), html=True),
                 name="frontend",
             )
