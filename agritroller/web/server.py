@@ -484,6 +484,9 @@ class WebServer:
                 while True:
                     event = await subscription.get()
                     await websocket.send_json(event)
+            except asyncio.CancelledError:
+                # Server is shutting down or task was cancelled; exit quietly.
+                self.logger.info("Event websocket cancelled")
             except WebSocketDisconnect:
                 self.logger.info("Event websocket disconnected")
             finally:

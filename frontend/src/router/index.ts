@@ -4,9 +4,8 @@ import {
   createRouter,
   createWebHashHistory,
   createWebHistory,
-  NavigationGuardNext,
-  RouteLocationNormalized,
 } from 'vue-router';
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import routes from './routes';
 
 /*
