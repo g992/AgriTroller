@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import contextlib
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -10,6 +11,7 @@ import serial
 from serial.serialutil import SerialException
 from serial.tools import list_ports
 
+from agritroller.config import PortMonitorConfig
 from agritroller.services.base import BootstrapContext, Service
 from agritroller.services.device_registry import DeviceRegistryService
 from agritroller.services.event_bus import EventBus
@@ -23,41 +25,72 @@ class PortMonitorService(Service):
     STATUS_MISSING = "missing"
     STATUS_UNKNOWN = "unknown"
 
-    def __init__(self, context: BootstrapContext) -> None:
+    def __init__(self, context: BootstrapContext, config: PortMonitorConfig) -> None:
         super().__init__("port_monitor", context)
+        self.config = config
+        self._task: Optional[asyncio.Task[None]] = None
 
     async def _start(self) -> None:
         self.context.state["port_monitor"] = self
         await self.refresh_all_ports()
-        self.logger.info("Port monitor initialized")
+        loop = asyncio.get_running_loop()
+        self._task = loop.create_task(self._watch_ports())
+        self.logger.info(
+            "Port monitor initialized (interval=%.1fs)",
+            max(0.1, self.config.poll_interval),
+        )
 
     async def _stop(self) -> None:
         self.context.state.pop("port_monitor", None)
+        if self._task:
+            self._task.cancel()
+            with contextlib.suppress(asyncio.CancelledError):
+                await self._task
+        self._task = None
 
-    async def refresh_all_ports(self) -> List[Dict[str, Any]]:
+    async def refresh_all_ports(
+        self,
+        *,
+        notify_on_change_only: bool = False,
+        skip_unchanged: bool = False,
+    ) -> List[Dict[str, Any]]:
         registry = self._get_registry()
         devices = registry.list_devices()
         results: List[Dict[str, Any]] = []
         for device in devices:
             try:
-                updated = await self.refresh_device(device["id"])
+                updated = await self.refresh_device(
+                    device["id"],
+                    notify_on_change_only=notify_on_change_only,
+                    skip_if_unchanged=skip_unchanged,
+                )
                 results.append(updated)
             except LookupError:
                 continue
         return results
 
-    async def refresh_device(self, device_id: int) -> Dict[str, Any]:
+    async def refresh_device(
+        self,
+        device_id: int,
+        *,
+        notify_on_change_only: bool = False,
+        skip_if_unchanged: bool = False,
+    ) -> Dict[str, Any]:
         registry = self._get_registry()
         device = registry.get_device(device_id)
         if not device:
             raise LookupError(f"Device {device_id} not found")
         status, message = await asyncio.to_thread(self._probe_port, device)
+        changed = status != device.get("status") or (message or "") != (device.get("status_message") or "")
+        if skip_if_unchanged and not changed:
+            return device
         updated = registry.update_device_status(
             device_id,
             status=status,
             status_message=message,
         )
-        await self._broadcast_status(updated)
+        if not notify_on_change_only or changed:
+            await self._broadcast_status(updated)
         return updated
 
     def _probe_port(self, device: Dict[str, Any]) -> Tuple[str, str]:
@@ -98,6 +131,17 @@ class PortMonitorService(Service):
             },
         }
         await bus.publish(event)
+
+    async def _watch_ports(self) -> None:
+        interval = max(0.1, self.config.poll_interval)
+        while True:
+            await asyncio.sleep(interval)
+            try:
+                await self.refresh_all_ports(notify_on_change_only=True, skip_unchanged=True)
+            except asyncio.CancelledError:
+                raise
+            except Exception:  # pragma: no cover - defensive logging
+                self.logger.exception("Port monitor poll failed")
 
     def _severity_for_status(self, status: str) -> str:
         if status == self.STATUS_AVAILABLE:

@@ -48,6 +48,11 @@ class SchedulerConfig:
 
 
 @dataclass
+class PortMonitorConfig:
+    poll_interval: float = 2.0
+
+
+@dataclass
 class FirmwareUpdateConfig:
     firmware_dir: Path = Path("firmware")
     ota_server: Optional[str] = None
@@ -90,6 +95,7 @@ class AppConfig:
     environment: str = "development"
     serial: SerialConfig = field(default_factory=SerialConfig)
     rs485: RS485Config = field(default_factory=RS485Config)
+    port_monitor: PortMonitorConfig = field(default_factory=PortMonitorConfig)
     database: DatabaseConfig = field(default_factory=DatabaseConfig)
     web: WebConfig = field(default_factory=WebConfig)
     scheduler: SchedulerConfig = field(default_factory=SchedulerConfig)
@@ -119,6 +125,16 @@ def _env_int(name: str, default: int) -> int:
         raise ValueError(f"Invalid integer value for {name}: {raw}") from exc
 
 
+def _env_float(name: str, default: float) -> float:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    try:
+        return float(raw)
+    except ValueError as exc:
+        raise ValueError(f"Invalid float value for {name}: {raw}") from exc
+
+
 def load_app_config_from_env() -> AppConfig:
     """Create :class:`AppConfig` with environment overrides suitable for production."""
 
@@ -133,6 +149,11 @@ def load_app_config_from_env() -> AppConfig:
     cfg.rs485.baudrate = _env_int("AGRITROLLER_RS485_BAUDRATE", cfg.rs485.baudrate)
     cfg.rs485.default_template_slug = os.environ.get(
         "AGRITROLLER_RS485_DEFAULT_TEMPLATE", cfg.rs485.default_template_slug
+    )
+
+    cfg.port_monitor.poll_interval = _env_float(
+        "AGRITROLLER_PORT_MONITOR_INTERVAL",
+        cfg.port_monitor.poll_interval,
     )
 
     cfg.database.path = Path(os.environ.get("AGRITROLLER_DB_PATH", cfg.database.path))

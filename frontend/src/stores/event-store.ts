@@ -4,6 +4,7 @@ import {
   useNotificationStore,
   type NotificationSeverity,
 } from './notification-store';
+import { useDeviceStore } from './device-store';
 import { useWifiStore } from './wifi-store';
 
 export interface EventEnvelope {
@@ -180,6 +181,38 @@ export const useEventStore = defineStore('eventStream', {
             });
           }
         }
+      }
+
+      if (event.type === 'device.port_status') {
+        const deviceStore = useDeviceStore();
+        const payload = (event.payload ?? {}) as {
+          device_id?: number;
+          status?: string;
+          message?: string | null;
+          checked_at?: string;
+        };
+        if (typeof payload.device_id !== 'number') {
+          return;
+        }
+        const update: {
+          device_id: number;
+          status?: string;
+          message?: string | null;
+          checked_at?: string | null;
+        } = {
+          device_id: payload.device_id,
+        };
+        if (payload.status !== undefined) {
+          update.status = payload.status;
+        }
+        if (payload.message !== undefined) {
+          update.message = payload.message;
+        }
+        const checkedAt = payload.checked_at ?? event.timestamp ?? null;
+        if (checkedAt !== null) {
+          update.checked_at = checkedAt;
+        }
+        deviceStore.applyPortStatus(update);
       }
     },
   },

@@ -151,6 +151,34 @@ export const useDeviceStore = defineStore('devices', {
         throw error;
       }
     },
+
+    applyPortStatus(payload: {
+      device_id?: number;
+      status?: string;
+      message?: string | null;
+      checked_at?: string | null;
+    }) {
+      const targetId = payload.device_id;
+      if (typeof targetId !== 'number') {
+        return;
+      }
+      this.devices = this.devices.map((device) => {
+        if (device.id !== targetId) {
+          return device;
+        }
+        const updated: DeviceRecord = { ...device };
+        if (payload.status !== undefined) {
+          updated.status = payload.status;
+        }
+        if (payload.message !== undefined) {
+          updated.status_message = payload.message;
+        }
+        if (payload.checked_at !== undefined) {
+          updated.status_checked_at = payload.checked_at;
+        }
+        return updated;
+      });
+    },
   },
 });
 

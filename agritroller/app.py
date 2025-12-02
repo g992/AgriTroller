@@ -53,7 +53,7 @@ class ServiceContainer:
             EventBusService(self.context),
             NotificationService(self.context),
             WifiService(self.context, cfg.wifi),
-            PortMonitorService(self.context),
+            PortMonitorService(self.context, cfg.port_monitor),
             LogicService(self.context),
             ModbusScannerService(self.context),
             SchedulerService(self.context, cfg.scheduler),
