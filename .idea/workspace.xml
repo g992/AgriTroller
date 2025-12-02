@@ -18,9 +18,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: add polkit Wi-Fi control configuration and improve mode handling&#10;  - Introduced `polkit` command in `stat.sh` to configure polkit rules for Wi-Fi control.&#10;  - Updated Vue router redirection logic with `isKioskRoute` helper for cleaner mode handling.&#10;  - Enhanced `KioskLayout` to support switching from kiosk to desktop mode. &#10;  - Improved Wi-Fi error handling in backend to detect and report polkit authorization issues. &#10;  - Updated IDE metadata (`workspace.xml`) for recent file changes.">
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: enhance KioskKeyboard and password dialog responsiveness  &#10;  - Adjusted paddings, widths, and font sizes for improved layout scalability.  &#10;  - Introduced `clamp()` for adaptive sizing of keyboard buttons and height.  &#10;  - Enhanced mobile-specific styles for password dialog with flexible layout and transitions.  &#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/KioskKeyboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/KioskKeyboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/boot/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/boot/axios.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/kiosk/KioskSettingsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/kiosk/KioskSettingsPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="77742000" />
+      <workItem from="1763214049657" duration="80584000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -220,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764614389518</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- feat: enhance KioskKeyboard and password dialog responsiveness  &#10;  - Adjusted paddings, widths, and font sizes for improved layout scalability.  &#10;  - Introduced `clamp()` for adaptive sizing of keyboard buttons and height.  &#10;  - Enhanced mobile-specific styles for password dialog with flexible layout and transitions.  &#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes.">
+      <option name="closed" value="true" />
+      <created>1764661366427</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764661366427</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +248,8 @@
     <MESSAGE value="- fix: improve API base URL resolution  &#10;  - Add fallback for parsing errors when `VITE_API_BASE_URL` is invalid.  &#10;  - Ensure localhost handling aligns with host origin for improved consistency.  &#10;  - Clean up logic for constructing dynamic API base URLs." />
     <MESSAGE value="- fix: simplify error handling for API base URL parsing  &#10;  - Remove unused error variable in `axios.ts` fallback logic." />
     <MESSAGE value="- feat: add polkit Wi-Fi control configuration and improve mode handling&#10;  - Introduced `polkit` command in `stat.sh` to configure polkit rules for Wi-Fi control.&#10;  - Updated Vue router redirection logic with `isKioskRoute` helper for cleaner mode handling.&#10;  - Enhanced `KioskLayout` to support switching from kiosk to desktop mode. &#10;  - Improved Wi-Fi error handling in backend to detect and report polkit authorization issues. &#10;  - Updated IDE metadata (`workspace.xml`) for recent file changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="- feat: add polkit Wi-Fi control configuration and improve mode handling&#10;  - Introduced `polkit` command in `stat.sh` to configure polkit rules for Wi-Fi control.&#10;  - Updated Vue router redirection logic with `isKioskRoute` helper for cleaner mode handling.&#10;  - Enhanced `KioskLayout` to support switching from kiosk to desktop mode. &#10;  - Improved Wi-Fi error handling in backend to detect and report polkit authorization issues. &#10;  - Updated IDE metadata (`workspace.xml`) for recent file changes." />
+    <MESSAGE value="- feat: enhance KioskKeyboard and password dialog responsiveness  &#10;  - Adjusted paddings, widths, and font sizes for improved layout scalability.  &#10;  - Introduced `clamp()` for adaptive sizing of keyboard buttons and height.  &#10;  - Enhanced mobile-specific styles for password dialog with flexible layout and transitions.  &#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- feat: enhance KioskKeyboard and password dialog responsiveness  &#10;  - Adjusted paddings, widths, and font sizes for improved layout scalability.  &#10;  - Introduced `clamp()` for adaptive sizing of keyboard buttons and height.  &#10;  - Enhanced mobile-specific styles for password dialog with flexible layout and transitions.  &#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

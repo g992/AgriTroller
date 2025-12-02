@@ -8,6 +8,8 @@ declare module 'vue' {
   }
 }
 
+const DEV_BACKEND_PORT = '8080';
+
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
@@ -20,11 +22,16 @@ function resolveApiBaseUrl(): string {
   const isLocalHost = (hostname: string) =>
     ['localhost', '127.0.0.1', '::1'].includes(hostname.toLowerCase());
 
-  const buildFromWindow = (path = '/api') => {
-    const url = new URL(typeof window !== 'undefined' ? window.location.href : 'http://localhost:8080');
+  const buildFromWindow = (path = '/api', opts?: { port?: string }) => {
+    const url = new URL(
+      typeof window !== 'undefined' ? window.location.href : `http://localhost:${DEV_BACKEND_PORT}`,
+    );
     url.pathname = path.startsWith('/') ? path : `/${path}`;
     url.search = '';
     url.hash = '';
+    if (opts?.port) {
+      url.port = opts.port;
+    }
     return url.toString();
   };
 
@@ -45,10 +52,14 @@ function resolveApiBaseUrl(): string {
   }
 
   if (typeof window !== 'undefined') {
+    if (import.meta.env.DEV) {
+      // When running the Vue dev server (port 9000), default API to backend on 8080
+      return buildFromWindow('/api', { port: DEV_BACKEND_PORT });
+    }
     return buildFromWindow('/api');
   }
 
-  return 'http://localhost:8080/api';
+  return `http://localhost:${DEV_BACKEND_PORT}/api`;
 }
 
 const apiBaseUrl = resolveApiBaseUrl();
