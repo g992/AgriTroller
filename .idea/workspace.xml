@@ -18,9 +18,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: add KioskKeyboardField component  &#10;  - Introduced `KioskKeyboardField` for enhanced input field interaction with virtual keyboard support.  &#10;  - Integrated feature to open a dialog with keyboard and quick selection options on input focus.  &#10;  - Added props for customizable input behavior such as `layout`, `maxlength`, `suggestions`, and more.  &#10;  - Implemented scoped styles for responsive and adaptive design.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +102,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="82100000" />
+      <workItem from="1763214049657" duration="82793000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -242,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764664687950</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes.">
+      <option name="closed" value="true" />
+      <created>1764666247195</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1764666247195</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +271,8 @@
     <MESSAGE value="- feat: enhance KioskKeyboard and password dialog responsiveness  &#10;  - Adjusted paddings, widths, and font sizes for improved layout scalability.  &#10;  - Introduced `clamp()` for adaptive sizing of keyboard buttons and height.  &#10;  - Enhanced mobile-specific styles for password dialog with flexible layout and transitions.  &#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
     <MESSAGE value="- feat: enhance KioskSettingsPage with network and UART management  &#10;  - Added collapsible sections for network and UART configuration.  &#10;  - Introduced UART port management with add, edit, and delete capabilities.  &#10;  - Improved mobile-specific styling and transitions for settings page.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
     <MESSAGE value="- feat: add KioskKeyboardField component  &#10;  - Introduced `KioskKeyboardField` for enhanced input field interaction with virtual keyboard support.  &#10;  - Integrated feature to open a dialog with keyboard and quick selection options on input focus.  &#10;  - Added props for customizable input behavior such as `layout`, `maxlength`, `suggestions`, and more.  &#10;  - Implemented scoped styles for responsive and adaptive design." />
-    <option name="LAST_COMMIT_MESSAGE" value="- feat: add KioskKeyboardField component  &#10;  - Introduced `KioskKeyboardField` for enhanced input field interaction with virtual keyboard support.  &#10;  - Integrated feature to open a dialog with keyboard and quick selection options on input focus.  &#10;  - Added props for customizable input behavior such as `layout`, `maxlength`, `suggestions`, and more.  &#10;  - Implemented scoped styles for responsive and adaptive design." />
+    <MESSAGE value="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

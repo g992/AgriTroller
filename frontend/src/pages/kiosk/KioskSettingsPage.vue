@@ -701,10 +701,6 @@ function resetEditForm() {
   editFormError.value = null;
 }
 
-async function refreshDevices() {
-  await deviceStore.fetchDevices();
-}
-
 async function refreshDevicesAndPorts() {
   await Promise.all([deviceStore.fetchDevices(), deviceStore.fetchPortSuggestions()]);
 }
