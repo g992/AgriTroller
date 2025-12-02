@@ -358,6 +358,8 @@ class WebServer:
                 )
             except LookupError as exc:
                 raise HTTPException(status_code=404, detail=str(exc)) from exc
+            except ValueError as exc:
+                raise HTTPException(status_code=400, detail=str(exc)) from exc
             if payload.port is not None or payload.baudrate is not None:
                 monitor = self._get_port_monitor(optional=True)
                 if monitor:

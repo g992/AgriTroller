@@ -1,4 +1,5 @@
 import { defineBoot } from '#q-app/wrappers';
+import { Notify } from 'quasar';
 import axios, { type AxiosInstance } from 'axios';
 
 declare module 'vue' {
@@ -65,6 +66,20 @@ function resolveApiBaseUrl(): string {
 const apiBaseUrl = resolveApiBaseUrl();
 
 const api = axios.create({ baseURL: apiBaseUrl });
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const response = error?.response;
+    const status = response?.status;
+    const detail =
+      response?.data?.detail || response?.data?.message || response?.data?.error || error?.message;
+    if (status && detail) {
+      Notify.create({ message: detail, color: 'negative' });
+    }
+    return Promise.reject(error instanceof Error ? error : new Error(detail || 'Request failed'));
+  },
+);
 
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api

@@ -18,7 +18,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- chore: update IDE metadata (`workspace.xml`)  &#10;  - Updated task summaries and commit messages to reflect recent changes in `KioskSettingsPage`.  &#10;  - Removed outdated `refreshDevices` method in `KioskSettingsPage.vue`.  &#10;  - Updated `LAST_COMMIT_MESSAGE` and local tasks counter for synchronization.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agritroller/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/agritroller/web/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quasar.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quasar.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/boot/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/boot/axios.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +107,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="82793000" />
+      <workItem from="1763214049657" duration="84059000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -248,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764666247195</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="- chore: update IDE metadata (`workspace.xml`)  &#10;  - Updated task summaries and commit messages to reflect recent changes in `KioskSettingsPage`.  &#10;  - Removed outdated `refreshDevices` method in `KioskSettingsPage.vue`.  &#10;  - Updated `LAST_COMMIT_MESSAGE` and local tasks counter for synchronization.">
+      <option name="closed" value="true" />
+      <created>1764666532329</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764666532329</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +285,8 @@
     <MESSAGE value="- feat: enhance KioskSettingsPage with network and UART management  &#10;  - Added collapsible sections for network and UART configuration.  &#10;  - Introduced UART port management with add, edit, and delete capabilities.  &#10;  - Improved mobile-specific styling and transitions for settings page.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
     <MESSAGE value="- feat: add KioskKeyboardField component  &#10;  - Introduced `KioskKeyboardField` for enhanced input field interaction with virtual keyboard support.  &#10;  - Integrated feature to open a dialog with keyboard and quick selection options on input focus.  &#10;  - Added props for customizable input behavior such as `layout`, `maxlength`, `suggestions`, and more.  &#10;  - Implemented scoped styles for responsive and adaptive design." />
     <MESSAGE value="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
+    <MESSAGE value="- chore: update IDE metadata (`workspace.xml`)  &#10;  - Updated task summaries and commit messages to reflect recent changes in `KioskSettingsPage`.  &#10;  - Removed outdated `refreshDevices` method in `KioskSettingsPage.vue`.  &#10;  - Updated `LAST_COMMIT_MESSAGE` and local tasks counter for synchronization." />
+    <option name="LAST_COMMIT_MESSAGE" value="- chore: update IDE metadata (`workspace.xml`)  &#10;  - Updated task summaries and commit messages to reflect recent changes in `KioskSettingsPage`.  &#10;  - Removed outdated `refreshDevices` method in `KioskSettingsPage.vue`.  &#10;  - Updated `LAST_COMMIT_MESSAGE` and local tasks counter for synchronization." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
