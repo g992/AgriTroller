@@ -98,7 +98,7 @@
             icon="refresh"
             :loading="devicesLoading"
             :disable="devicesSaving"
-            @click="refreshDevices"
+            @click="refreshDevicesAndPorts"
           />
           <q-btn
             flat
@@ -539,7 +539,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed, onMounted, ref } from 'vue';
+import { reactive, computed, onMounted, ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useQuasar } from 'quasar';
 import KioskKeyboard from 'components/KioskKeyboard.vue';
@@ -616,8 +616,13 @@ onMounted(() => {
   }
   void wifiStore.fetchStatus();
   void wifiStore.fetchNetworks();
-  void deviceStore.fetchDevices();
-  void deviceStore.fetchPortSuggestions();
+  void refreshDevicesAndPorts();
+});
+
+watch(uartSectionExpanded, (expanded) => {
+  if (expanded) {
+    void refreshDevicesAndPorts();
+  }
 });
 
 const sortedNetworks = computed(() =>
@@ -698,6 +703,10 @@ function resetEditForm() {
 
 async function refreshDevices() {
   await deviceStore.fetchDevices();
+}
+
+async function refreshDevicesAndPorts() {
+  await Promise.all([deviceStore.fetchDevices(), deviceStore.fetchPortSuggestions()]);
 }
 
 async function submitPort() {
@@ -814,6 +823,7 @@ async function refreshDeviceStatus(deviceId: number) {
   setRefreshing(deviceId, true);
   try {
     await deviceStore.refreshDeviceStatus(deviceId);
+    await deviceStore.fetchPortSuggestions();
   } catch {
     // ошибка будет показана в баннере
   } finally {
