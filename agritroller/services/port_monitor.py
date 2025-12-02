@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import contextlib
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import serial
@@ -97,7 +98,7 @@ class PortMonitorService(Service):
         port_path = device["port"]
         baudrate = device["baudrate"]
         available_ports = {port.device for port in list_ports.comports() if port.device}
-        if port_path not in available_ports:
+        if port_path not in available_ports and not Path(port_path).exists():
             return self.STATUS_MISSING, "Порт недоступен в системе"
         try:
             with serial.Serial(port=port_path, baudrate=baudrate, timeout=1):

@@ -18,13 +18,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: enhance error handling and notification system&#10;  - Added `ValueError` exception handling in `server.py` with proper HTTP 400 responses.&#10;  - Integrated Quasar `Notify` plugin for user notifications in frontend.&#10;  - Introduced Axios interceptor to display error notifications for failed API responses.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes.">
+    <list default="true" id="7d90676f-a811-4ea7-b61b-2e846acc2590" name="Changes" comment="- feat: add port monitoring and device status handling&#10;  - Introduced `PortMonitorService` with poll interval configuration.&#10;  - Added functionality to update device port status in `device-store`.&#10;  - Enhanced environment configuration with `PortMonitorConfig`.&#10;  - Implemented detailed tests for port monitoring, including disconnection detection.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agritroller/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/agritroller/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agritroller/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/agritroller/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agritroller/services/port_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/agritroller/services/port_monitor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/device-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/device-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/stores/event-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/stores/event-store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/services/test_port_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/services/test_port_monitor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763214048200</updated>
-      <workItem from="1763214049657" duration="87712000" />
+      <workItem from="1763214049657" duration="89199000" />
     </task>
     <task id="LOCAL-00001" summary="- docs: add `modules.md` to document available simple-keyboard modules.&#10;- feat: create `StatusCard.vue` component with prop defaults and scoped styles.&#10;- feat: implement `useAppStore` Pinia store for templates, versions, and system metrics.&#10;- feat: develop `VersioningService` to manage version files.&#10;- feat: introduce `DeviceRegistryService` for handling RS-485 and peripheral device data.&#10;- feat: add `EventBusService` for in-memory event broadcasting.&#10;- chore: set up initial database migrations in `migrations.py`.">
       <option name="closed" value="true" />
@@ -272,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764667733047</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- feat: add port monitoring and device status handling&#10;  - Introduced `PortMonitorService` with poll interval configuration.&#10;  - Added functionality to update device port status in `device-store`.&#10;  - Enhanced environment configuration with `PortMonitorConfig`.&#10;  - Implemented detailed tests for port monitoring, including disconnection detection.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes.">
+      <option name="closed" value="true" />
+      <created>1764689556748</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1764689556748</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +302,8 @@
     <MESSAGE value="- feat: enhance KioskSettingsPage with UART and device management  &#10;  - Added `refreshDevicesAndPorts` function to handle simultaneous device and port updates.  &#10;  - Implemented `watch` to dynamically fetch ports when UART section expands.  &#10;  - Modified `refreshDeviceStatus` to include port suggestions fetching.  &#10;  - Updated affected button actions and added missing imports.  &#10;  - Updated IDE metadata (`workspace.xml`) for recent changes." />
     <MESSAGE value="- chore: update IDE metadata (`workspace.xml`)  &#10;  - Updated task summaries and commit messages to reflect recent changes in `KioskSettingsPage`.  &#10;  - Removed outdated `refreshDevices` method in `KioskSettingsPage.vue`.  &#10;  - Updated `LAST_COMMIT_MESSAGE` and local tasks counter for synchronization." />
     <MESSAGE value="- feat: enhance error handling and notification system&#10;  - Added `ValueError` exception handling in `server.py` with proper HTTP 400 responses.&#10;  - Integrated Quasar `Notify` plugin for user notifications in frontend.&#10;  - Introduced Axios interceptor to display error notifications for failed API responses.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="- feat: enhance error handling and notification system&#10;  - Added `ValueError` exception handling in `server.py` with proper HTTP 400 responses.&#10;  - Integrated Quasar `Notify` plugin for user notifications in frontend.&#10;  - Introduced Axios interceptor to display error notifications for failed API responses.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
+    <MESSAGE value="- feat: add port monitoring and device status handling&#10;  - Introduced `PortMonitorService` with poll interval configuration.&#10;  - Added functionality to update device port status in `device-store`.&#10;  - Enhanced environment configuration with `PortMonitorConfig`.&#10;  - Implemented detailed tests for port monitoring, including disconnection detection.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- feat: add port monitoring and device status handling&#10;  - Introduced `PortMonitorService` with poll interval configuration.&#10;  - Added functionality to update device port status in `device-store`.&#10;  - Enhanced environment configuration with `PortMonitorConfig`.&#10;  - Implemented detailed tests for port monitoring, including disconnection detection.&#10;  - Updated IDE metadata (`workspace.xml`) to reflect recent changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -148,3 +148,54 @@ async def test_port_monitor_detects_disconnect(monkeypatch, tmp_path: Path) -> N
     await event_bus.stop()
     await registry.stop()
     await database.stop()
+
+
+@pytest.mark.asyncio
+async def test_port_monitor_handles_missing_from_list(monkeypatch, tmp_path: Path) -> None:
+    config = AppConfig(database=DatabaseConfig(path=tmp_path / "ports.db"))
+    config.port_monitor.poll_interval = 0.05
+    context = BootstrapContext(config=config)
+
+    database = DatabaseService(context, config.database)
+    monkeypatch.setattr(DeviceRegistryService, "_seed_defaults", lambda self: None)
+    registry = DeviceRegistryService(context, config.serial, config.rs485)
+    event_bus = EventBusService(context)
+    monitor = PortMonitorService(context, config.port_monitor)
+
+    await database.start()
+    await registry.start()
+    await event_bus.start()
+
+    device = registry.create_device(
+        kind="peripheral",
+        name="Manual UART",
+        port="/dev/ttyS2",
+        baudrate=115200,
+    )
+
+    class DummySerial:
+        def __init__(self, *args, **kwargs) -> None:
+            self.closed = False
+
+        def __enter__(self) -> "DummySerial":
+            return self
+
+        def __exit__(self, exc_type, exc, tb) -> None:
+            self.closed = True
+
+    monkeypatch.setattr(
+        "agritroller.services.port_monitor.list_ports",
+        SimpleNamespace(comports=lambda: []),
+    )
+    monkeypatch.setattr("agritroller.services.port_monitor.Path.exists", lambda self: True)
+    monkeypatch.setattr("agritroller.services.port_monitor.serial.Serial", DummySerial)
+
+    await monitor.start()
+    updated = await monitor.refresh_device(device["id"])
+
+    assert updated["status"] == monitor.STATUS_AVAILABLE
+
+    await monitor.stop()
+    await event_bus.stop()
+    await registry.stop()
+    await database.stop()
