@@ -226,7 +226,7 @@ function toggleAlt(button: string) {
   background: #0b1221;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 12px;
+  padding: 16px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
@@ -235,15 +235,19 @@ function toggleAlt(button: string) {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 
 .keyboard-wrapper {
-  padding: 4px;
+  padding: 8px 6px 2px;
+  min-height: clamp(300px, 55vh, 520px);
+  display: flex;
+  align-items: stretch;
 }
 
 .kiosk-simple-keyboard {
   background: transparent;
+  width: 100%;
 }
 
 :deep(.hg-theme-default) {
@@ -253,9 +257,9 @@ function toggleAlt(button: string) {
 }
 
 :deep(.hg-theme-default .hg-button) {
-  border-radius: 12px;
-  min-height: 52px;
-  font-size: 16px;
+  border-radius: 14px;
+  min-height: clamp(62px, 10vw, 92px);
+  font-size: clamp(18px, 3vw, 22px);
   font-weight: 700;
   background: #0f172a;
   color: #f8fafc;
@@ -269,7 +273,7 @@ function toggleAlt(button: string) {
 :deep(.hg-theme-default .hg-button-alt),
 :deep(.hg-theme-default .hg-button-default) {
   flex: 1;
-  min-width: 72px;
+  min-width: 96px;
 }
 
 :deep(.hg-theme-default .hg-button:hover) {
@@ -279,12 +283,5 @@ function toggleAlt(button: string) {
 :deep(.hg-theme-default .hg-button.hg-functionBtn) {
   background: #1f2937;
   color: #e2e8f0;
-}
-
-@media (max-width: 640px) {
-  .hg-theme-default .hg-button {
-    min-height: 48px;
-    font-size: 15px;
-  }
 }
 </style>

@@ -68,8 +68,15 @@
         </q-list>
       </q-card-section>
     </q-card>
-    <q-dialog v-model="passwordDialog" persistent>
-      <q-card class="kiosk-card" style="min-width: 360px; max-width: 640px;">
+    <q-dialog
+      v-model="passwordDialog"
+      persistent
+      :maximized="$q.screen.lt.lg"
+      transition-show="slide-up"
+      transition-hide="slide-down"
+      class="kiosk-password-dialog"
+    >
+      <q-card class="kiosk-card kiosk-password-card">
         <q-card-section class="row items-start justify-between q-gutter-sm">
           <div>
             <div class="text-h6 text-white">Пароль для {{ selectedNetwork || 'сети' }}</div>
@@ -211,6 +218,47 @@ async function submitWifiWithPassword(ssid: string, password?: string) {
 .kiosk-network-list {
   max-height: 480px;
   overflow-y: auto;
+}
+
+.kiosk-password-dialog :deep(.q-dialog__inner--maximized) {
+  padding: 12px;
+  align-items: flex-end;
+}
+
+.kiosk-password-card {
+  width: 100%;
+  max-width: 960px;
+}
+
+@media (max-width: 1024px) {
+  .kiosk-password-card {
+    max-width: none;
+    border-radius: 14px 14px 0 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .kiosk-password-dialog :deep(.q-dialog__inner--maximized) {
+    padding: 0;
+  }
+
+  .kiosk-password-card {
+    border-radius: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kiosk-password-card .q-card__section:last-of-type {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kiosk-password-card .kiosk-keyboard {
+    flex: 1;
+  }
 }
 
 @media (max-width: 640px) {
